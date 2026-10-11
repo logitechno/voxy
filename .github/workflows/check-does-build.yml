@@ -30,3 +30,10 @@ jobs:
 
       - name: Gradle build
         run: ./gradlew -I init.gradle build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mod-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
